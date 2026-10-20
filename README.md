@@ -1,5 +1,3 @@
-# SQL_Dwh_Supplu_chain_visibility_using_SQL
-
 # End-to-End Supply Chain Analytics & Data Warehouse
 ### SQL | Data Engineering | Supply Chain Optimization | Business Intelligence
 
