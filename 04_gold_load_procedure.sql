@@ -28,13 +28,8 @@ reusable standalone reference data. Use the joined fact views directly for
 straightforward analysis, or use the fact keys with dimensions in a BI model;
 avoid joining a joined fact view to the same dimension again unless needed.
 
-DATA MAPPING NOTE:
-The supplied screenshot showed values such as SKU0204 in purchase_order.supplier_id
-and SUP075 in purchase_order.sku_id. The purchase-order fact therefore uses the
-swapped join mapping observed in that screenshot. If the Silver data was corrected,
-change to direct joins:
-  po.supplier_id = sup.supplier
-  po.sku_id = sku.sku_id
+
+
 */
 
 USE Project_180_DC__supply_chain_management;
@@ -217,9 +212,9 @@ SELECT
     po.lead_time_days AS ordered_lead_time
 FROM silver.purchase_order AS po
 LEFT JOIN silver.suppliers AS sup
-    ON po.sku_id = sup.supplier
+    ON po.supplier_id = sup.supplier
 LEFT JOIN silver.sku_master AS sku
-    ON po.supplier_id = sku.sku_id;
+    ON po.sku_id = sku.sku_id;
 GO
 
 /* 5. General shipment logistics: silver.shipment has no expected-date field.
